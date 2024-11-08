@@ -622,10 +622,6 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -660,10 +656,6 @@ video {
 
 .h-96 {
   height: 24rem;
-}
-
-.h-10 {
-  height: 2.5rem;
 }
 
 .min-h-\[500px\] {
@@ -820,16 +812,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.placeholder-gray-950::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(3 7 18 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-950::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(3 7 18 / var(--tw-placeholder-opacity));
 }
 
 .hover\:bg-blue-700:hover {

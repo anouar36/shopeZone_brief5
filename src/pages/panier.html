@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link href="../output.css" rel="stylesheet" />
+  </head>
+  <body class="w-[100%]">
+    <!-- Section Panier -->
+    <section class="panier py-12 px-6">
+      <div class="max-w-7xl mx-auto space-y-8">
+        <h1 class="text-4xl font-bold text-center text-gray-800">
+          Votre Panier
+        </h1>
+
+        <!-- Liste des articles -->
+        <div id="product-List" class="space-y-6"></div>
+
+        <!-- Total et Bouton -->
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 flex items-center justify-between"
+        >
+          <div>
+            <span class="text-2xl font-semibold text-gray-800">Total</span>
+            <p class="text-lg text-gray-600">Incluant les taxes</p>
+          </div>
+          <span class="text-2xl font-bold text-gray-900">€49.98</span>
+          <button
+            class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:outline-none"
+          >
+            Passer à la caisse
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- section formulaire -->
+    <section class="flex flex-col h-[100vh] hidden">
+      <form
+        action=""
+        class="flex flex-col bg-white m-auto shadow-lg gap-3 px-[2rem] py-[3rem]"
+      >
+        <h2 class="text-3xl font-bold text-center">Payment</h2>
+        <div class="">
+          <label class="block capitalize pb-2 font-[2rem]" for="first-name"
+            >first name</label
+          >
+          <input
+            class="rounded-md w-[23rem] h-[2.5rem] border-[.1rem] border-solide pl-4 outline-none"
+            type="text"
+            name="first-name"
+            id="first-name"
+          />
+        </div>
+        <div class="">
+          <label class="block capitalize pb-2 font-[2rem]" for="last-name"
+            >last name</label
+          >
+          <input
+            class="rounded-md w-[23rem] h-[2.5rem] border-[.1rem] border-solide pl-4 outline-none"
+            type="text"
+            name="last-name"
+            id="last-name"
+          />
+        </div>
+        <div class="">
+          <label class="block capitalize pb-2 font-[2rem]" for="email"
+            >email</label
+          >
+          <input
+            class="rounded-md w-[23rem] h-[2.5rem] border-[.1rem] border-solide pl-4 outline-none"
+            type="text"
+            name="email"
+            id="email"
+          />
+        </div>
+        <div class="">
+          <label class="block capitalize pb-2 font-[2rem]" for="phone"
+            >phone</label
+          >
+          <input
+            class="rounded-md w-[23rem] h-[2.5rem] border-[.1rem] border-solide pl-4 outline-none"
+            type="text"
+            name="phone"
+            id="phone"
+          />
+        </div>
+        <div class="">
+          <label class="block capitalize pb-2 font-[2rem]" for="adress"
+            >adress</label
+          >
+          <input
+            class="rounded-md w-[23rem] h-[2.5rem] border-[.1rem] border-solide pl-4 outline-none"
+            type="text"
+            name="adress"
+            id="adress"
+          />
+        </div>
+        <div class="flex justify-between">
+          <a
+            class="bg-[#9fa29fdd] mt-[3rem] w-fit px-3 py-2 text-white uppercase rounded-sm"
+            aria-label="previous"
+            href=""
+            >previous</a
+          >
+          <input
+            class="bg-[#269134dd] mt-[3rem] w-fit px-3 py-2 text-white uppercase rounded-sm"
+            type="submit"
+            value="submit"
+          />
+        </div>
+      </form>
+    </section>
+
+    <!-- section confirmation -->
+    <section id="section4" class="bg-[#d1cacad6] h-[100vh] flex hidden">
+      <div
+        class="relative bg-[#bec8be] overflow-hidden w-fit h-fit m-auto px-[3rem] py-[5rem] text-center"
+      >
+        <button>
+          <i
+            class="fa-solid fa-x absolute top-1 right-1 text-[#5d5a5aeb] bg-[#5d5a5a35] text-[.7rem] p-1 rounded-[50%]"
+          ></i>
+        </button>
+        <i class="text-green-700 text-[2rem] fa-regular fa-circle-check"></i>
+
+        <h2 class="text-[1.4rem]">successful!</h2>
+        <p class="mb-[1rem]">Votre commande a été réussie.</p>
+        <button class="bg-green-700 text-white px-[1rem] py-[.5rem] rounded-md">
+          <a
+            aria-label="successful project and pass to the categories"
+            href="./Categories.html"
+          >
+            continue shoping
+          </a>
+        </button>
+      </div>
+    </section>
+    <button type="submit"></button>
+    <script src="../assets/scripts/panier.js"></script>
+  </body>
+</html>

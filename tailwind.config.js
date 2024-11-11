@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+
     extend: {
       colors: {
         MainColor: '#008888',  // Custom color1
@@ -11,6 +12,7 @@ module.exports = {
         customFont: ["'Amazon Ember'", 'sans-serifArial, sans-serif'],// custom font-Family
       },
     },
+
   },
   plugins: [],
 }

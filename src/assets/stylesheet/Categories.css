@@ -1,5 +1,9 @@
 #container{
     width: 1380px;
+<<<<<<< HEAD
+=======
+    height: 3750px;
+>>>>>>> anouar
     margin: 8px;
     padding-top: 8px;
 }
@@ -7,12 +11,26 @@
     width: 95%;
     height: 60px;
 }
+<<<<<<< HEAD
 .filter{
     width: 20%;
     height: 3240px;
 }
 .allCards{
     /* width: 100%; */
+=======
+.cardGliss{
+    width: 80%;
+    height: 370px;
+}
+.filter{
+    width: 20%;
+    height: 3260px;
+}
+.allCards{
+    width: 100%;
+    height: 3260px;
+>>>>>>> anouar
 }
 .allCards .card1{
     height: 500px;

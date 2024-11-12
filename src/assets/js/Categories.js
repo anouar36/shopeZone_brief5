@@ -1,4 +1,5 @@
 
+
 let fileJson = "../../../DataBase/cart.json";
 
 fetch(fileJson)
@@ -141,3 +142,4 @@ Swipe.addEventListener("mouseleave", () => {
 
 
 // ------------------
+

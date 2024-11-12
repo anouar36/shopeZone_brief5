@@ -9,7 +9,7 @@ fetch(fileJson)
       productDiv.classList.add("product");
 
       productDiv.innerHTML = `
-                          <div class="card w-64 flex flex-col rounded justify-stretch">
+                          <div class="card w-62 flex flex-col rounded justify-stretch">
                         <img src="${product.image}" alt="pic1"
                             class="rounded h-60">
                         <p>${product.description}</p>
@@ -107,7 +107,22 @@ function Like(){
 // ----------locale Storage
 
 
-
+function addProduct(productId) {
+ let panier = JSON.parse(localStorage.getItem("panier")) || [];
+  const produit = products.filter((el) => el.id === productId)[0];
+  if (produit) {
+    const produitExist = panier.find((item) => item.id === produit.id);
+    if (produitExist) {
+      alert( "porduit deja ajouter" )
+    } else {
+      panier.push({ ...produit });
+      localCounter++;
+      counterPanier.textContent = localCounter;
+    }
+    localStorage.setItem("panier", JSON.stringify(panier));
+    localStorage.setItem("count", JSON.stringify(localCounter));
+  }
+}
 
 
 

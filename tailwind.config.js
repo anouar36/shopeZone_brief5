@@ -2,7 +2,6 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-
     extend: {
       colors: {
         MainColor: '#008888',  // Custom color1

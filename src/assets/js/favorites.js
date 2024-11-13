@@ -1,3 +1,6 @@
+
+let products =[] 
+
 var slider_img = document.querySelector(".slider-img");
 var imges = ["slider (2).jpg", "slider (3).jpg", "slider.jpg"];
 var i = 0;
@@ -24,51 +27,68 @@ function setimge() {
 
 
 const mostPopPorducts = document.querySelector("#aa")
-const jsonFile ="/src/assets/file(1).json";
+const jsonFile ="/DataBase/cart.json";
 
  fetch(jsonFile).then((respone) => {
   return respone.json(); 
  }).then( data => {
+  products=data.products;
+  localStorage.setItem("products", JSON.stringify(data.products));
+  if(!localStorage.getItem("cart")){
+    localStorage.setItem("cart", "[]");
+  }
   data.products.map(product => {
-    const { id ,name, price , images} = product;
+    const { id ,name, new_price ,old_price , image} = product;
     mostPopPorducts.innerHTML += `
-     <div class="w-44 pt-3 h-[320px] bg-red-800 mb-8"  id="${id}">
-        <img class="w-40 m-auto "  src="" alt="${name}">
-        <h1 class="text-xl font-mono">${name}</h1>
-        <p class="text-sm font-sans w-44 h-14 flex-wrap "></p>
-        <h3 class=" w-2/4">PRIX= "${price}" </h3>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full relative bottom-8  ml-28">
-            love
-          </button>
-        </div>`
+     <div class="card  border border-solid m-1 border-black px-2 w-[300px] bg-slate-400" >
+      <div class="Articl-name ">
+          <h1>${name}</h1>
+      </div>
+      <div class="Articl-img">
+          <img class="object-cover h-[200px]  w-[300px]"  src="${image}" alt="${name}">
+      </div>
+      <div class="Article-type id="${id}">
+          <h5>${name}</h5>
+      </div>
+      <div class="price">
+          <div class="reduced font-bold"><mark>27% off</mark> Limited time deal</div>
+          <div class="old-price"><del>${old_price}$</del></div>
+          <div class="now-price font-bold text-lg">${new_price}$</div>
+      </div>
+      <div class="click flex justify-center mb-2">
+          <div class="BuyNow mx-2">
+              <button type="button" class="bg-MainColor rounded px-5 py-2">Buy Now</button>
+          </div>
+          <div class="Add Cart mx-5 ">
+              <button type="button" class="bg-MainColor rounded px-5 py-2">Add Favori</button>
+          </div>
+      </div>
+  </div>
+   `
   })
  }) 
 
   
 
+ 
 
-.then(function(data){
-  localStorage.setItem("products", JSON.stringify(data.products));
-  if(!localStorage.getItem("cart")){
-    localStorage.setItem("cart", "[]");
+let product = JSON.parse(localStorage.getItem("products"));
+let cart =JSON.parse(localStorage.getItem("cart"));
+
+function addItemToCarat(productId){
+  let product = products.find(function(product){
+    return product.id == productId;
+  });
+  if(cart.length==0){
+        cart.push(product);
+  }else{
+    let res =cart.find(element => products.id == productId);
+    if(res === undefined){
+      cart.push(product);
+    }
   }
-});
-
-// let product = JSON.parse(localStorage.getItem("products"));
-// let cart =JSON.parse(localStorage.getItem("products"));
-
-// function addItemtocarat(productId){
-//   let product=product.find(function(product){
-//     return product.id == productId;
-//   });
-//   if(cart.length==0){
-//         cart.push(product);
-//   }else{
-//     let res =cart.find(element => element.id == productId);
-//     if(res === undefined){
-//       cart.push(product);
-//     }
-//   }
-//  localStorage.setItem("cart",JSON.stringify(cart));
-// }
-// addItemtocarat(1);
+ localStorage.setItem("cart",JSON.stringify(cart));
+}
+addItemToCarat(1);
+addItemToCarat(2);
+addItemToCarat(3);

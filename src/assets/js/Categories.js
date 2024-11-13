@@ -248,7 +248,15 @@ function displayProducts(filteredProducts) {
   });
 }
 displayProducts(products);
+function filterCategory(category) {
+  const filteredProducts = category
+    ? products.filter(product => 
+        Array.isArray(product.category) && product.category.includes(category)
+      )
+    : products;
 
+  displayProducts(filteredProducts);
+}
 document.getElementById("Clothes").addEventListener("change", (event) => {
   const isChecked = event.target.checked;
   const filteredProducts = isChecked
@@ -257,4 +265,25 @@ document.getElementById("Clothes").addEventListener("change", (event) => {
       )
     : products;
   displayProducts(filteredProducts);
+});
+document.getElementById("Beauty").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Beauty" : null);
+});
+document.getElementById("Electronics").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Electronics" : null);
+});
+document.getElementById("Books").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Books" : null);
+});
+document.getElementById("Headphones").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Headphones" : null);
+});
+document.getElementById("Phones").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Phones" : null);
+});
+document.getElementById("Men").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Men" : null);
+});
+document.getElementById("Women").addEventListener("change", (event) => {
+  filterCategory(event.target.checked ? "Women" : null);
 });

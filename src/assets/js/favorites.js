@@ -1,3 +1,4 @@
+
 let products =[] 
 
 var slider_img = document.querySelector(".slider-img");
@@ -26,7 +27,7 @@ function setimge() {
 
 
 const mostPopPorducts = document.querySelector("#aa")
-const jsonFile ="/src/assets/file(1).json";
+const jsonFile ="/DataBase/cart.json";
 
  fetch(jsonFile).then((respone) => {
   return respone.json(); 
@@ -37,14 +38,14 @@ const jsonFile ="/src/assets/file(1).json";
     localStorage.setItem("cart", "[]");
   }
   data.products.map(product => {
-    const { id ,name, new_price ,old_price , images} = product;
+    const { id ,name, new_price ,old_price , image} = product;
     mostPopPorducts.innerHTML += `
      <div class="card  border border-solid m-1 border-black px-2 w-[300px] bg-slate-400" >
       <div class="Articl-name ">
           <h1>${name}</h1>
       </div>
       <div class="Articl-img">
-          <img class="object-cover h-[200px]  w-[300px]"  src="${images}" alt="${name}">
+          <img class="object-cover h-[200px]  w-[300px]"  src="${image}" alt="${name}">
       </div>
       <div class="Article-type id="${id}">
           <h5>${name}</h5>
@@ -68,6 +69,8 @@ const jsonFile ="/src/assets/file(1).json";
  }) 
 
   
+
+ 
 
 let product = JSON.parse(localStorage.getItem("products"));
 let cart =JSON.parse(localStorage.getItem("cart"));

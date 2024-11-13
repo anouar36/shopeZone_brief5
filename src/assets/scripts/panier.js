@@ -1,9 +1,11 @@
 const productList = document.getElementById("product-list");
 const totalPrice = document.getElementById("total");
+const section1 = document.getElementById("section1");
+const section2 = document.getElementById("section2");
 
 let totalArray = [];
 let localPanier = JSON.parse(localStorage.getItem("panier"));
-let localCounter = JSON.parse(localStorage.getItem("count"));
+let localCounter = localStorage.getItem("count");
 
 if (localPanier.length == 0) {
   productList.innerHTML = "no pruducts added to the cart!";
@@ -54,7 +56,12 @@ function removeProduct(removeId) {
     localPanier.splice(index, 1);
     localStorage.setItem("panier", JSON.stringify(localPanier));
     element.remove();
+    localCounter--;
+    localStorage.setItem("count", localCounter);
     totalArray.splice(index, 1);
+    if (totalArray.length == 0) {
+      productList.innerHTML = "no pruducts added to the cart!";
+    }
     reducedPrice(totalArray);
   }
 }
@@ -77,4 +84,21 @@ function reducedPrice(totalArray) {
   });
 
   totalPrice.textContent = total.toFixed(2);
+}
+// nextSection
+function nextSection() {
+  if (localCounter > 0) {
+    section1.style.display = "none";
+    section2.style.display = "flex";
+  } else {
+    console.log("NO PRODUCT");
+  }
+}
+function prevSection() {
+  if (localCounter > 0) {
+    section1.style.display = "flex";
+    section2.style.display = "none";
+  } else {
+    console.log("NO PRODUCT");
+  }
 }

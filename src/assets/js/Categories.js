@@ -1,17 +1,15 @@
-
-
 let fileJson = "../../../DataBase/cart.json";
-
 fetch(fileJson)
   .then((response) => response.json())
   .then((data) => {
+    localStorage.setItem('MyData' , JSON.stringify(data.products))
     const Allcards = document.getElementById("allCard");
     data.products.forEach((product) => {
       const productDiv = document.createElement("div");
       productDiv.classList.add("product");
 
       productDiv.innerHTML = `
-                          <div class="card1 w-64 flex flex-col rounded justify-stretch">
+                          <div class="card w-62 flex flex-col rounded justify-stretch">
                         <img src="${product.image}" alt="pic1"
                             class="rounded h-60">
                         <p>${product.description}</p>
@@ -67,45 +65,81 @@ fetch(fileJson)
                         <p>Ships to Morocco</p>
                         <div class="flex place-content-around">
                             <button id="btn-add" type="button"
-                                class="btn bg-emerald-950 w-32 focus:outline-none text-white hover:bg-teal-300 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Add
+                                class="btn bg-emerald-950 w-32 focus:outline-none text-white hover:bg-teal-300 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" onclick="addCard(${product.id})">Add
                                 to cart</button>
                             <a href="#"><img id="likely"
                                     src="/src/assets/images/love.png"
-                                    alt="love" class="w-8 h-8"></a>
+                                    alt="love" class="w-8 h-8" onclick="Like()"></a>
                         </div>
                     </div>`;
 
       Allcards.appendChild(productDiv);
     });
   })
-  .catch((error) => console.error("Error loading JSON data:", error));
 
 
 
+// ------------------------------
 
 
 
+let productcounter = 0, likecounter = 0;
+let counter = document.getElementById('countcart'), counter2 = document.getElementById('countcart2')
+let Btn = document.getElementById('btn-add'), love = document.getElementById('likely');
 
-
-
-let productcounter = 0;
-let counter = document.getElementById('countcart');
-let Btn = document.getElementById('btn-add');
-Btn.addEventListener('click', () => {
+function addCard(id){
+  const datas = JSON.parse(localStorage.getItem('MyData'))
+  console.log(id);
+  const added = datas.forEach(element => {
+    let add = element.id === id
+    return add;
+  });
+  console.log(added);
   productcounter++;
-  counter.innerHTML = `<span>${productcounter}</span>`
-});
-
-let likecounter = 0;
-let counter2 = document.getElementById('countcart2');
-let love = document.getElementById('likely');
-love.addEventListener('click', () => {
+  counter.innerHTML = productcounter;
+}
+function Like(){
   likecounter++;
-  counter2.innerHTML = `<span>${likecounter}</span>`
-});
+  counter2.innerHTML = likecounter;
+}
+
+
+// ----------locale Storage
+
+
+function addProduct(productId) {
+ let panier = JSON.parse(localStorage.getItem("panier")) || [];
+  const produit = products.filter((el) => el.id === productId)[0];
+  if (produit) {
+    const produitExist = panier.find((item) => item.id === produit.id);
+    if (produitExist) {
+      alert( "porduit deja ajouter" )
+    } else {
+      panier.push({ ...produit });
+      localCounter++;
+      counterPanier.textContent = localCounter;
+    }
+    localStorage.setItem("panier", JSON.stringify(panier));
+    localStorage.setItem("count", JSON.stringify(localCounter));
+  }
+}
+
+
+
+// Btn.addEventListener('click', () => {
+//   productcounter++;
+//   counter.innerHTML = `<span>${productcounter}</span>`
+// });
+
+// love.addEventListener('click', () => {
+//   likecounter++;
+//   counter2.innerHTML = `<span>${likecounter}</span>`
+// });
+
 
 
 // -------------------
+
 
 
 const Swipe = document.getElementById("Swipe");
@@ -141,5 +175,8 @@ Swipe.addEventListener("mouseleave", () => {
 });
 
 
-// ------------------
 
+// ------------------Search
+
+
+const categories = [...new Set(fileJson.map((item)=> {}))]

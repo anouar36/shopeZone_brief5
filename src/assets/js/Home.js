@@ -35,7 +35,7 @@ function displayProducts(products) {
                         </div>
                         <div class="price">
                             <div class="reduced font-bold"><mark>
-                            ${product.reduced_price}% off</mark> Limited time deal</div>
+                            ${product.discount_percentage}% off</mark> Limited time deal</div>
                             <div class="oldPrice"><del><p class="old-price">
                             ${product.old_price}$</p></del></div>
                             <div class="nowPrice font-bold text-lg"><p class="now-price">

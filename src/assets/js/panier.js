@@ -1,8 +1,9 @@
-
 const productList = document.getElementById("product-list");
 const totalPrice = document.getElementById("total");
 const section1 = document.getElementById("section1");
 const section2 = document.getElementById("section2");
+const section3 = document.getElementById("section3");
+const formulaire = document.getElementById("formulaire");
 
 let totalArray = [];
 let localPanier = JSON.parse(localStorage.getItem("panier"));
@@ -88,18 +89,19 @@ function reducedPrice(totalArray) {
 }
 // nextSection
 function nextSection() {
-  if (localCounter > 0) {
+  
     section1.style.display = "none";
     section2.style.display = "flex";
-  } else {
-    console.log("NO PRODUCT");
-  }
+  
 }
 function prevSection() {
-  if (localCounter > 0) {
+  
     section1.style.display = "flex";
     section2.style.display = "none";
-  } else {
-    console.log("NO PRODUCT");
-  }
+ 
 }
+
+formulaire.onsubmit = function (event) {
+  event.preventDefault();
+  section3.style.display = "flex";
+};

@@ -596,20 +596,12 @@ video {
   position: relative;
 }
 
-.bottom-8 {
-  bottom: 2rem;
-}
-
 .left-4 {
   left: 1rem;
 }
 
 .right-0 {
   right: 0px;
-}
-
-.right-1 {
-  right: 0.25rem;
 }
 
 .right-32 {
@@ -620,8 +612,8 @@ video {
   right: 1rem;
 }
 
-.top-1 {
-  top: 0.25rem;
+.right-\[0\] {
+  right: 0;
 }
 
 .top-1\/2 {
@@ -632,12 +624,12 @@ video {
   top: 24rem;
 }
 
-.m-0 {
-  margin: 0px;
+.top-\[0\] {
+  top: 0;
 }
 
-.m-1 {
-  margin: 0.25rem;
+.m-0 {
+  margin: 0px;
 }
 
 .m-2 {
@@ -654,6 +646,18 @@ video {
 
 .m-auto {
   margin: auto;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.m-5 {
+  margin: 1.25rem;
 }
 
 .mx-10 {
@@ -724,10 +728,6 @@ video {
 
 .ml-2 {
   margin-left: 0.5rem;
-}
-
-.ml-28 {
-  margin-left: 7rem;
 }
 
 .ml-4 {
@@ -849,6 +849,10 @@ video {
 
 .min-h-\[500px\] {
   min-height: 500px;
+}
+
+.min-h-\[50vh\] {
+  min-height: 50vh;
 }
 
 .w-1\/2 {
@@ -990,6 +994,10 @@ video {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .justify-stretch {
   justify-content: stretch;
 }
@@ -1008,6 +1016,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1056,10 +1068,6 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
-}
-
-.rounded-\[50\%\] {
-  border-radius: 50%;
 }
 
 .rounded-full {
@@ -1147,10 +1155,6 @@ video {
   background-color: #269134dd;
 }
 
-.bg-\[\#5d5a5a35\] {
-  background-color: #5d5a5a35;
-}
-
 .bg-\[\#9fa29fdd\] {
   background-color: #9fa29fdd;
 }
@@ -1160,8 +1164,9 @@ video {
   background-color: rgb(190 200 190 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#d1cacad6\] {
-  background-color: #d1cacad6;
+.bg-\[\#d1caca\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 202 202 / var(--tw-bg-opacity));
 }
 
 .bg-blue-500 {
@@ -1229,10 +1234,6 @@ video {
 
 .p-1 {
   padding: 0.25rem;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .p-2 {
@@ -1403,10 +1404,6 @@ video {
   line-height: 1;
 }
 
-.text-\[\.7rem\] {
-  font-size: .7rem;
-}
-
 .text-\[1\.4rem\] {
   font-size: 1.4rem;
 }
@@ -1475,10 +1472,6 @@ video {
 
 .not-italic {
   font-style: normal;
-}
-
-.text-\[\#5d5a5aeb\] {
-  color: #5d5a5aeb;
 }
 
 .text-blue-600 {

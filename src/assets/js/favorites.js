@@ -2,7 +2,7 @@
 let products =[] 
 
 var slider_img = document.querySelector(".slider-img");
-var imges = ["slider (2).jpg", "slider (3).jpg", "slider.jpg"];
+var imges = ["imgSlide2.jpg", "imgSlide1.jpg", "imgSlide3.jpg"];
 var i = 0;
 function prev() {
   if (i <= 0) i = imges.length;
@@ -40,7 +40,7 @@ const jsonFile ="/DataBase/cart.json";
   data.products.map(product => {
     const { id ,name, new_price ,old_price , image} = product;
     mostPopPorducts.innerHTML += `
-     <div class="card  border border-solid m-1 border-black px-2 w-[300px] bg-slate-400" >
+     <div class="card  border border-solid border-black px-2 w-[300px] bg-slate-400" >
       <div class="Articl-name ">
           <h1>${name}</h1>
       </div>
@@ -72,23 +72,23 @@ const jsonFile ="/DataBase/cart.json";
 
  
 
-let product = JSON.parse(localStorage.getItem("products"));
-let cart =JSON.parse(localStorage.getItem("cart"));
+// let product = JSON.parse(localStorage.getItem("products"));
+// let cart =JSON.parse(localStorage.getItem("cart"));
 
-function addItemToCarat(productId){
-  let product = products.find(function(product){
-    return product.id == productId;
-  });
-  if(cart.length==0){
-        cart.push(product);
-  }else{
-    let res =cart.find(element => products.id == productId);
-    if(res === undefined){
-      cart.push(product);
-    }
-  }
- localStorage.setItem("cart",JSON.stringify(cart));
-}
-addItemToCarat(1);
-addItemToCarat(2);
-addItemToCarat(3);
+// function addItemToCarat(productId){
+//   let product = products.find(function(product){
+//     return product.id == productId;
+//   });
+//   if(cart.length==0){
+//         cart.push(product);
+//   }else{
+//     let res =cart.find(element => products.id == productId);
+//     if(res === undefined){
+//       cart.push(product);
+//     }
+//   }
+//  localStorage.setItem("cart",JSON.stringify(cart));
+// }
+// addItemToCarat(1);
+// addItemToCarat(2);
+// addItemToCarat(3);

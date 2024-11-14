@@ -69,9 +69,9 @@ function displayProducts(productsToDisplay) {
                             <button id="btn-add" type="button"
                                 class="btn bg-emerald-950 w-32 focus:outline-none text-white hover:bg-teal-300 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" onclick="addCard(${product.id})">Add
                                 to cart</button>
-                            <a href="#"><img id="likely"
+                            <a href="#" onclick="like(${product.id})"><img id="likely"
                                     src="/src/assets/images/love.png"
-                                    alt="love" class="w-8 h-8" onclick="Like(${product.id})"></a>
+                                    alt="love" class="w-8 h-8"></a>
                         </div>
                     </div>`;
     
@@ -88,6 +88,7 @@ let productcounter = 0;
 let likecounter = 0;
 const counter = document.getElementById('countcart');
 const counter2 = document.getElementById('countcart2');
+
 function like(productId){
   const produitFav = products.filter((el) => el.id === productId)[0];
   let panierFav = JSON.parse(localStorage.getItem("panierFav")) || [];
@@ -100,8 +101,8 @@ function like(productId){
        likecounter++;
        counter.textContent = likecounter;
      }
-     localStorage.setItem("panier", JSON.stringify(panierFav));
-     localStorage.setItem("count", JSON.stringify(likecounter));
+     localStorage.setItem("panierFav", JSON.stringify(panierFav));
+     localStorage.setItem("countFav", JSON.stringify(likecounter));
    }
 }
 function addCard(productId){
@@ -251,19 +252,14 @@ displayProducts(products);
 function filterCategory(category) {
   const filteredProducts = category
     ? products.filter(product => 
-        Array.isArray(product.category) && product.category.includes(category)
-      )
-    : products;
-
+        Array.isArray(product.category) && product.category.includes(category)) : products;
   displayProducts(filteredProducts);
 }
 document.getElementById("Clothes").addEventListener("change", (event) => {
   const isChecked = event.target.checked;
   const filteredProducts = isChecked
     ? products.filter(product => 
-        Array.isArray(product.category) && product.category.includes("Clothes")
-      )
-    : products;
+        Array.isArray(product.category) && product.category.includes("Clothes")) : products;
   displayProducts(filteredProducts);
 });
 document.getElementById("Beauty").addEventListener("change", (event) => {
